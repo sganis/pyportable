@@ -49,7 +49,8 @@ If you do not have a compiler, then the other option is to find a wheel with a p
 
 .. code:: bash
 
-	c:\pyportable> pip install http://www.lfd.uci.edu/~gohlke/pythonlibs/r7to5k3j/pandas-0.16.1-cp33-none-win_amd64.whl
+	c:\pyportable> set UCI=http://www.lfd.uci.edu/~gohlke/pythonlibs/r7to5k3j
+	c:\pyportable> pip install %UCI%/pandas-0.16.1-cp27-none-win_amd64.whl
 
 In this example, numpy must be installed before to satisfy dependencies.
 
