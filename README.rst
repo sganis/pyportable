@@ -31,7 +31,7 @@ The steps of creating a portable python are as follows:
 
 Packages with C extensions will require compilation if a pre-build wheel is not available, such as Cython and Pycrypt. Pip will build it if you have a compiler. The trick is to install `Microsoft Visual C++ Compiler for Python 2.7`_. It might work with any Visual Studio (I have version 2012), but you need to do some configuration so pip can find the compiler. Make sure it works for 64-bits typing in the command line:
 
-.. code:: bash
+.. code:: dos
 
 	c:\> cd c:\wherever\the\msvc\compiler\is\located>
 	c:\wherever\the\msvc\compiler\is\located> vcvarsall.bat amd64
@@ -39,7 +39,7 @@ Packages with C extensions will require compilation if a pre-build wheel is not 
 
 In my machine, I only needed to do this:
 
-.. code:: bash
+.. code:: dos
 
 	c:\pyportable> SET VS90COMNTOOLS=%VS110COMNTOOLS%
 
@@ -47,7 +47,7 @@ But sometimes take longer to setup the compiler. The important thing is that the
 
 If you do not have a compiler, then the other option is to find a wheel with a pre-build release, such as those at UCI_. You can use pip directly with an url:
 
-.. code:: bash
+.. code:: dos
 
 	c:\pyportable> set UCI=http://www.lfd.uci.edu/~gohlke/pythonlibs/r7to5k3j
 	c:\pyportable> pip install %UCI%/pandas-0.16.1-cp27-none-win_amd64.whl
@@ -56,7 +56,7 @@ In this example, numpy must be installed before to satisfy dependencies.
 
 The build.bat script will do everything, ending up with a portable version of python. It downloads packages from internet if needed, executes the steps from above, and creates a self-extracting executable. Run the script from a windows terminal:
 
-.. code:: bash
+.. code:: dos
 	
 	c:\pyportable> build.bat
 
