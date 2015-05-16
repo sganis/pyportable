@@ -42,11 +42,11 @@ python "%DOWNLOADS%\get-pip.py"
 
 :: numpy
 call :download %NUMPY_URL%
-pip install "%DOWNLOADS%\%filename%"
+::pip install "%DOWNLOADS%\%filename%"
 
 :: scipy
 call :download %SCIPY_URL%
-pip install "%DOWNLOADS%\%filename%"
+::pip install "%DOWNLOADS%\%filename%"
 
 :: install list of packages
 for %%i in (%PACKAGES%) do (
