@@ -9,12 +9,12 @@
 Pyportable
 ==========
 
-Pyportable is a portable `Python http://python.org` interpreter that can run from a local folder or a USB device, so you can enjoy a powerful and portable programming environment.  
+Pyportable is a portable Python programming environment (http://python.org) that runs from a local folder or a USB device, without the normal installation process common in Windows, and no admin priveledges needed.
 
 User guide
 ----------
 
-If you just want to use a portable version of Python, download the `latest release`_ https://github.com/sganis/pyportable/releases/download/v2.7.10rc1/pyportable-2.7.10rc1.zip`, unzip it in a folder, and run the terminal.bat launcher script. Pip will be available in the command line.
+If you just want to use a portable version of Python, download the `latest release`_, unzip it in a folder, and run the terminal.bat launcher script. Pip will be available in the command line.
 
 Developer guide
 ---------------
@@ -24,10 +24,9 @@ I got the inspiration from the excellent work at `portable python`_. The motivat
 The steps of creating a portable python are as follows: 
 
 - Download and extract python.
-- set the new PATH environment variable so you python is the new executable just donwloaded.
+- Set the new PATH environment variable so you python is the new executable just donwloaded.
 - Download pip and install it. This became quite simple with the git-pip.py script. Setuptools will be installed too. The only problem is that pip will not be portable, the executable is saved in the Scripts directory and it has the full path of the python interpreter hard-coded. To make pip portable, we need to change that path. See below.
-- Download numpy wheel. I am using the latest build from UCI_. I decided to use these precompiled packages because they require some extra libraries such as atlas, lapack, blas, as well as `Intel® Math Kernel Library`_ and the `runtime libraries for Intel C++ and Fortran`_, and didn't want to setup such building environment. In addition, these packages will install almost all dependencies needed for any other package.
-- Download scipy wheel from the same location, there is no Windows wheel in Pypi_ at this moment, and this package needs math lib dependencies too, like numpy.
+- Download numpy wheel. I am using the latest build from UCI_. I decided to use this precompiled package because it requires some extra libraries such as atlas, lapack, blas, as well as `Intel® Math Kernel Library`_ and the `runtime libraries for Intel C++ and Fortran`_, and didn't want to setup such building environment. In addition, these packages will install almost all dependencies needed for many other packages.
 - Use pip to install the rest of packages.
 
 Packages with C extensions will require compilation if a pre-build wheel is not available, such as Cython and Pycrypt. Pip will build it if you have a compiler. The trick is to install `Microsoft Visual C++ Compiler for Python 2.7`_. It might work with any Visual Studio (I have version 2012), but you need to do some configuration so pip can find the compiler. Make sure it works for 64-bits typing in the command line:
@@ -46,7 +45,7 @@ In my machine, I only needed to do this:
 
 But sometimes take longer to setup the compiler. The important thing is that the script `vcvarsall.bat` must be available in your path, usually located somewhere in `C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC` or something similar. That script will be called from pip to set some variables such as new PATH, LIB, LIBPATH, INCLUDE..., all this needed for the MSVC compiler. 
 
-If you do not have UIa compiler, then the other option is to find a wheel with a pre-build release, such as those at UCI_. You can use pip directly with an url:
+If you do not have a compiler, then the other option is to find a wheel with a pre-build release, such as those at UCI_. You can use pip directly with an url:
 
 .. code:: bash
 
