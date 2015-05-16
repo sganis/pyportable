@@ -1,7 +1,7 @@
 Portable Python
 ===============
 
-Portable Python is a the python interpreter (http://python.org) that can run from a folder, any USB storage device, local or network location so you can enjoy a powerful and portable programming environment. 
+Portable Python is a python interpreter (http://python.org) that can run from a local folder or a USB storage device, so you can enjoy a powerful and portable programming environment. 
 
 This is a fork of the excellent work from https://github.com/pericazivkovic/portablepython. The motivations to fork the original project were the need to have an updated portable version of python 2.7 in Windows, 64-bit packages, maximize the use of pip, and also make the build script simpler. I tried to simplify the original project as much as possible. There is only one script, and shorter. The steps of creating a portable python are as follows: 
 
