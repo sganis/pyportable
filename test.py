@@ -6,9 +6,9 @@ class TestPython(unittest.TestCase):
 		import platform
 		self.assertEqual(platform.python_version(), "2.7.10rc1")
 
-	# def test_numpy(self):
-	# 	import numpy
-	# 	# self.assertEqual(numpy.version.version, "1.8.1")
+	def test_numpy(self):
+		import numpy
+		self.assertEqual(numpy.version.version, "1.9.2")
 
 	# def test_scipy(self):
 	# 	import scipy
