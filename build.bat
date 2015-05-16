@@ -1,22 +1,24 @@
 :: build script to create a portable python for windows
+::
 :: author: 	sganis
 :: date: 	05/16/2015
 
 @ECHO OFF
 
-:: update these values :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: update these values ::::::::::::::::::::::::::::::::::::::::::::::
 SET VERSION=2.7.10rc1
 SET PYTHON_URL=https://www.python.org/ftp/python/2.7.10/python-%VERSION%.amd64.msi
 SET PIP_URL=https://bootstrap.pypa.io/get-pip.py
 
-:: wheels from UCI
+:: pre-build wheels from UCI
 SET UCI=http://www.lfd.uci.edu/~gohlke/pythonlibs/r7to5k3j
 SET NUMPY_URL=%UCI%/numpy-1.9.2+mkl-cp27-none-win_amd64.whl
 SET SCIPY_URL=%UCI%/scipy-0.15.1-cp27-none-win_amd64.whl
+SET PYQT4_URL=%UCI%/PyQt4-4.11.3-cp27-none-win_amd64.whl
 
 :: this list of packages will be install using pip from PyPi
 SET PACKAGES=dateutils,ipython,pyreadline,sphinx,pillow,matplotlib,pandas
-:: no more update needed from here :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: no more update needed from here ::::::::::::::::::::::::::::::::::
 
 ECHO Building... 
 
@@ -48,12 +50,16 @@ python patchpip.py %PYPORTABLE%
 CALL :download %NUMPY_URL%
 pip install "%DOWNLOADS%\%filename%"
 
-:: loop over list of packages, install with pip
-::FOR %%i in (%PACKAGES%) do pip install %%i
-
 :: some packages needs a pre-build wheel: scipy
-::call :download %SCIPY_URL%
-::pip install "%DOWNLOADS%\%filename%"
+CALL :download %SCIPY_URL%
+pip install "%DOWNLOADS%\%filename%"
+
+CALL :download %PYQT4_URL%
+pip install "%DOWNLOADS%\%filename%"
+
+:: loop over list of packages, install with pip
+FOR %%i in (%PACKAGES%) do pip install %%i
+
 
 :: cleanup
 rmdir /s /q %PYPORTABLE%\Doc
@@ -76,13 +82,11 @@ ECHO creating compressed package...
 :: end
 GOTO :eof
 
-
 :: functions
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :download url
-:: download file from url
-:: extract filename from url and return filename
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: download file from url, return filename from url
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 SETLOCAL
 FOR /f %%i IN ("%1") DO SET filename=%%~nxi
 SET file=%DOWNLOADS%\%filename%
@@ -95,4 +99,5 @@ IF NOT EXIST %file% (
 )
 ENDLOCAL & SET filename=%filename%
 GOTO :eof
-::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+

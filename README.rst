@@ -1,4 +1,4 @@
-.. _latest release: https://github.com/sganis/pyportable/releases/download/v2.7.10rc1/pyportable-2.7.10.zip
+.. _latest release: 
 .. _Microsoft Visual C++ Compiler for Python 2.7: http://aka.ms/vcpython27
 .. _runtime libraries for Intel C++ and Fortran: https://software.intel.com/en-us/articles/redistributable-libraries-for-intel-c-and-visual-fortran-composer-xe-2013-sp1-for-windows
 .. _Intel® Math Kernel Library: http://software.intel.com/en-us/articles/intel-mkl/
@@ -14,12 +14,17 @@ Pyportable is a portable Python programming environment (http://python.org) that
 User guide
 ----------
 
-If you just want to use a portable version of Python, download the `latest release`_, unzip it in a folder, and run the terminal.bat launcher script. Pip will be available in the command line.
+If you just want to use a portable version of Python, download the latest release, unzip it in a folder, and run the terminal.bat launcher script. Pip will be available in the command line.
+
+Download
+--------
+
+-  Pyportable-2.7.10rc1: https://github.com/sganis/pyportable/releases/download/v2.7.10rc1/pyportable-2.7.10rc1.zip
 
 Developer guide
 ---------------
 
-I got the inspiration from the excellent work at `portable python`_. The motivations to fork the original project were the need to have an updated portable version of python 2.7 in Windows, 64-bit packages, maximize the use of pip, and also make the build script simpler. I tried to simplify the original project as much as possible. There is only one short script. However, it is less tested, too. Only 64-bit Windows 7/8/8.1, and Windows Server 2008/2008R2/2012/2012R2. I also only tested in machines with some version of Visual Studio installed, and I guess this might satisfy some dependencies, so a thoghrough testing in fresh Windows installations is needed. 
+I got the inspiration from the excellent work at `portable python`_. The motivations to fork the original project were the need to have an updated portable version of python 2.7 in Windows, 64-bit packages, maximize the use of pip, and also make the build script simpler. I tried to simplify the original project as much as possible. There is only one short script. However, it is less tested, too. Only 64-bit Windows 7/8/8.1, and Windows Server 2008/2008R2/2012/2012R2. I also only tested in machines with some version of Visual Studio installed, and I guess this might satisfy some dependencies, so more tests in fresh Windows machines are needed. 
 
 The steps of creating a portable python are as follows: 
 
@@ -64,6 +69,6 @@ The build.bat script will do everything, ending up with a portable version of py
 Making pip portable
 -------------------
 
-I followed the steps at http://www.clemens-sielaff.com/create-a-portable-python-with-pip-on-windows/
+I followed the steps at http://www.clemens-sielaff.com/create-a-portable-python-with-pip-on-windows. The patchpip.py script automates the process.
 
 

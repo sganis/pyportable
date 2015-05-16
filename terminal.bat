@@ -1,5 +1,8 @@
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: open a windows terminal and set the PATH 
+:: to work with python and pip
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @ECHO OFF
-
 setlocal
 
 :: get script directory
@@ -14,6 +17,7 @@ if exist "%VS110COMNTOOLS%" @set VS90COMNTOOLS=%VS110COMNTOOLS%
 if exist "%VS100COMNTOOLS%" @set VS90COMNTOOLS=%VS100COMNTOOLS%
 ::@if exists "%VS90COMNTOOLS%" @set VS90COMNTOOLS=%VS110COMNTOOLS%
 
+C:\Users\sant\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0
 cd /d %USERPROFILE%
 call %COMSPEC%
 

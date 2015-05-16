@@ -1,5 +1,10 @@
 # make pip portable
+#
+# author: 	sganis
+# date: 	05/16/2015
+#
 # param: full path of pyportable folder
+
 import sys
 import os
 
@@ -15,7 +20,7 @@ for exe in os.listdir(pip_dir):
 		r = open(exe,"rb")
 		s = r.read()
 		r.close()
-		s = s.replace(pattern,b'#!python.exe')
+		s = s.replace(bytes(pattern),b'#!python.exe')
 		w = open(exe, 'wb')
 		w.write(s)
 		w.close()
