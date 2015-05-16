@@ -16,7 +16,7 @@ This is a fork of the excellent work from https://github.com/pericazivkovic/port
 
 	c:\portablepython> SET VS90COMNTOOLS=%VS110COMNTOOLS%
 
-In my machine, VS110COMNTOOLS is pointing to `C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\`, but I guess any version of Visual Studio should work.
+In my machine, VS110COMNTOOLS is pointing to `C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\Common7\\Tools`, but I guess any version of Visual Studio should work.
 
 
 Usage
