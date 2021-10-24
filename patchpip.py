@@ -11,6 +11,7 @@ import os
 assert len(sys.argv)>1
 pyportable = sys.argv[1]
 pattern = '#!%s\\python.exe' % pyportable
+pattern = pattern.lower()
 pip_dir = '%s\\Scripts' % pyportable
 
 for exe in os.listdir(pip_dir):
